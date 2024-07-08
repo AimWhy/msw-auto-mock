@@ -29,7 +29,19 @@ describe('generate:generateOperationCollection', () => {
   });
 
   it("should resolve ref's allOf after it's resolving", async () => {
-    const baseEntity = get(schema, ['properties', 'data', 'properties', 'rows', 'items', 'allOf', 0, 'allOf', 0]);
+    const baseEntity = get(schema, [
+      'properties',
+      'data',
+      'properties',
+      'rows',
+      'items',
+      'allOf',
+      0,
+      'allOf',
+      0,
+      'allOf',
+      0,
+    ]);
     expect(baseEntity).toMatchObject({ type: 'object' });
     expect(baseEntity).not.haveOwnProperty('$ref');
   });
@@ -41,6 +53,8 @@ describe('generate:generateOperationCollection', () => {
       'properties',
       'rows',
       'items',
+      'allOf',
+      0,
       'allOf',
       0,
       'allOf',
